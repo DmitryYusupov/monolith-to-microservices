@@ -1,4 +1,4 @@
-package ru.yusdm.monolithtomicro.demo
+package ru.yusdm.monolithtomicro
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
