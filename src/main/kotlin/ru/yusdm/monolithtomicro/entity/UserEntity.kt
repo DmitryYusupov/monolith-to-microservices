@@ -22,9 +22,20 @@ class UserEntity(
     var driverLicense: String,
 
     @Column(name = "registered_at")
-    var registeredAt: LocalDateTime,
+    var registeredAt: LocalDateTime = LocalDateTime.now(),
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = [CascadeType.ALL])
-    var orders: MutableList<OrderEntity>
+    var orders: MutableList<OrderEntity> = mutableListOf()
 
-)
+) {
+    companion object {
+        fun createById(id: UUID): UserEntity {
+            return UserEntity(
+                id = id,
+                name = "NONE",
+                lastName = "NONE",
+                driverLicense = "NONE",
+            )
+        }
+    }
+}

@@ -1,5 +1,6 @@
 package ru.yusdm.monolithtomicro.entity
 
+import java.time.LocalDateTime
 import java.util.*
 import javax.persistence.*
 
@@ -18,5 +19,20 @@ class OrderEntity(
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private var user: UserEntity
+    var user: UserEntity,
+
+    @Column(name = "price")
+    var price: Int,
+
+    @Column(name = "priority")
+    var priority: Int,
+
+    @Column(name = "description")
+    var description: String,
+
+    @Column(name = "created_at")
+    var createdAt: LocalDateTime = LocalDateTime.now(),
+
+    @Column(name = "finished")
+    var finished: Boolean
 )

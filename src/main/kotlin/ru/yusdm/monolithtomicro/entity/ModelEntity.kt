@@ -20,6 +20,17 @@ class ModelEntity (
     var name: String,
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "model", cascade = [CascadeType.ALL])
-    var orders: MutableList<OrderEntity>
+    var orders: MutableList<OrderEntity>? = null
 
-)
+) {
+    companion object {
+        fun createById(id: UUID): ModelEntity {
+            return ModelEntity(
+                id = id,
+                mark = MarkEntity(name ="NA"),
+                name = "NA"
+            )
+        }
+    }
+
+}
