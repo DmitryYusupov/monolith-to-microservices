@@ -13,7 +13,7 @@ import ru.yusdm.monolithtomicro.service.http.OrderHttpService
 class OrderController(private val orderHttpService: OrderHttpService) {
 
     @PostMapping
-    fun create(@RequestBody createOrderCommand: CreateOrderCommandDTO): OrderDTO? {
+    fun create(@RequestBody createOrderCommand: CreateOrderCommandDTO): OrderDTO {
         return orderHttpService.create(createOrderCommand)
     }
 }

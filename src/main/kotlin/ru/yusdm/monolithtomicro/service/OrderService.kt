@@ -2,12 +2,16 @@ package ru.yusdm.monolithtomicro.service
 
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import ru.yusdm.monolithtomicro.domain.Mark
+import ru.yusdm.monolithtomicro.domain.Model
 import ru.yusdm.monolithtomicro.domain.Order
+import ru.yusdm.monolithtomicro.domain.User
 import ru.yusdm.monolithtomicro.entity.ModelEntity
 import ru.yusdm.monolithtomicro.entity.OrderEntity
 import ru.yusdm.monolithtomicro.entity.UserEntity
-import ru.yusdm.monolithtomicro.repository.MarkRepository
+import ru.yusdm.monolithtomicro.repository.ModelRepository
 import ru.yusdm.monolithtomicro.repository.OrderRepository
+import ru.yusdm.monolithtomicro.repository.UserRepository
 import java.util.*
 import javax.persistence.*
 
@@ -15,12 +19,12 @@ import javax.persistence.*
 @Transactional
 class OrderService(
     private val orderRepository: OrderRepository,
-    private val markRepository: MarkRepository,
-    private val modelRepository: MarkRepository,
+    private val userRepository: UserRepository,
+    private val modelRepository: ModelRepository,
     private val entityManager: EntityManager,
 ) {
 
-    fun createOrder(createOrderCommand: CreateOrderCommand): Order? {
+    fun createOrder(createOrderCommand: CreateOrderCommand): Order {
         return if (createOrderCommand.priceInRur > 100_000) {
             createOrderWithHighestPriority(createOrderCommand)
         } else {
@@ -28,8 +32,8 @@ class OrderService(
         }
     }
 
-    private fun createOrderWithHighestPriority(createOrderCommand: CreateOrderCommand): Order? {
-        val entity = with(createOrderCommand) {
+    private fun createOrderWithHighestPriority(createOrderCommand: CreateOrderCommand): Order {
+        val order = with(createOrderCommand) {
             OrderEntity(
                 id = UUID.randomUUID(),
                 model = ModelEntity.createById(modelId),
@@ -41,14 +45,16 @@ class OrderService(
             )
         }
 
-        orderRepository.save(entity)
+        orderRepository.save(order)
+        val model = modelRepository.getById(createOrderCommand.modelId)
+        val user = userRepository.getById(createOrderCommand.modelId)
 
-        return null
+        return buildOrder(order, model, user)
     }
 
-    private fun createOrderWithNormalPriority(createOrderCommand: CreateOrderCommand): Order? {
+    private fun createOrderWithNormalPriority(createOrderCommand: CreateOrderCommand): Order {
 
-        val entity = with(createOrderCommand) {
+        val order = with(createOrderCommand) {
             OrderEntity(
                 id = UUID.randomUUID(),
                 model = entityManager.getReference(ModelEntity::class.java, modelId),
@@ -59,10 +65,36 @@ class OrderService(
                 finished = false
             )
         }
+        orderRepository.save(order)
+        val model = modelRepository.getById(createOrderCommand.modelId)
+        val user = userRepository.getById(createOrderCommand.modelId)
 
-        orderRepository.save(entity)
+        return buildOrder(order, model, user)
+    }
 
-        return null
+    private fun buildOrder(order: OrderEntity, model: ModelEntity, user: UserEntity): Order {
+        return Order(
+            id = order.id,
+            model = with(model) {
+                Model(id = id,
+                    name = name,
+                    with(mark) {
+                        Mark(id = id, name = name)
+                    })
+            },
+            user = with(user) {
+                User(
+                    id = id,
+                    name = name,
+                    lastName = lastName,
+                    driverLicense = driverLicense,
+                    registeredAt = registeredAt
+                )
+            },
+            description = order.description,
+            price = order.price,
+            priority = order.priority
+        )
     }
 
 

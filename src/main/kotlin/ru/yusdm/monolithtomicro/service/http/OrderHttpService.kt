@@ -10,8 +10,8 @@ import ru.yusdm.monolithtomicro.service.OrderService
 @Service
 class OrderHttpService(private val orderService: OrderService) {
 
-    fun create(createOrderCommandDTO: CreateOrderCommandDTO): OrderDTO? {
-        return orderService.createOrder(createOrderCommandDTO.toModel())?.toDTO()
+    fun create(createOrderCommandDTO: CreateOrderCommandDTO): OrderDTO {
+        return orderService.createOrder(createOrderCommandDTO.toModel()).toDTO()
     }
 
 }

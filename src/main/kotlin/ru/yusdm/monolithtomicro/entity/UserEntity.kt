@@ -32,9 +32,9 @@ class UserEntity(
         fun createById(id: UUID): UserEntity {
             return UserEntity(
                 id = id,
-                name = "NONE",
-                lastName = "NONE",
-                driverLicense = "NONE",
+                name = UNDEFINED_STR,
+                lastName = UNDEFINED_STR,
+                driverLicense = UNDEFINED_STR,
             )
         }
     }

@@ -5,7 +5,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "model")
-class ModelEntity (
+class ModelEntity(
 
     @Id
     @GeneratedValue
@@ -14,7 +14,7 @@ class ModelEntity (
 
     @ManyToOne
     @JoinColumn(name = "mark_id")
-    private var mark: MarkEntity,
+    var mark: MarkEntity,
 
     @Column(name = "name", nullable = false)
     var name: String,
@@ -27,8 +27,8 @@ class ModelEntity (
         fun createById(id: UUID): ModelEntity {
             return ModelEntity(
                 id = id,
-                mark = MarkEntity(name ="NA"),
-                name = "NA"
+                mark = MarkEntity(name = UNDEFINED_STR),
+                name = UNDEFINED_STR
             )
         }
     }

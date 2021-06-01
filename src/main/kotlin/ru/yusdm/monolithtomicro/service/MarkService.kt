@@ -25,6 +25,7 @@ class MarkService(
     }
 
     fun addModelToMark() {
+        modelRepository.toString()
         //your logic here
     }
 
