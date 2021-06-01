@@ -1,4 +1,4 @@
-package ru.yusdm.monolithtomicro.order.service
+package ru.yusdm.monolithtomicro.order.service.edit
 
 import java.util.*
 

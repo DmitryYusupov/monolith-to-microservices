@@ -1,23 +1,21 @@
-package ru.yusdm.monolithtomicro.order.service
+package ru.yusdm.monolithtomicro.order.service.edit
 
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import ru.yusdm.monolithtomicro.mark.domain.Mark
-import ru.yusdm.monolithtomicro.model.domain.Model
-import ru.yusdm.monolithtomicro.user.domain.User
 import ru.yusdm.monolithtomicro.model.entity.ModelEntity
-import ru.yusdm.monolithtomicro.order.entity.OrderEntity
-import ru.yusdm.monolithtomicro.user.entity.UserEntity
 import ru.yusdm.monolithtomicro.model.repository.ModelRepository
 import ru.yusdm.monolithtomicro.order.domain.Order
+import ru.yusdm.monolithtomicro.order.entity.OrderEntity
 import ru.yusdm.monolithtomicro.order.repository.OrderRepository
+import ru.yusdm.monolithtomicro.order.service.common.buildOrder
+import ru.yusdm.monolithtomicro.user.entity.UserEntity
 import ru.yusdm.monolithtomicro.user.repository.UserRepository
 import java.util.*
 import javax.persistence.*
 
 @Service
 @Transactional
-class OrderService(
+class OrderEditService(
     private val orderRepository: OrderRepository,
     private val userRepository: UserRepository,
     private val modelRepository: ModelRepository,
@@ -70,38 +68,6 @@ class OrderService(
         val user = userRepository.getById(createOrderCommand.userId)
 
         return buildOrder(order, model, user)
-    }
-
-    private fun buildOrder(order: OrderEntity, model: ModelEntity, user: UserEntity): Order {
-        return Order(
-            id = order.id,
-            model = with(model) {
-                Model(id = id,
-                    name = name,
-                    with(mark) {
-                        Mark(id = id, name = name)
-                    })
-            },
-            user = with(user) {
-                User(
-                    id = id,
-                    name = name,
-                    lastName = lastName,
-                    driverLicense = driverLicense,
-                    registeredAt = registeredAt
-                )
-            },
-            description = order.description,
-            price = order.price,
-            priority = order.priority
-        )
-    }
-
-
-    fun findAll(): List<Order> {
-        return orderRepository.findAll().asSequence().map {
-            buildOrder(it, it.model, it.user)
-        }.toList()
     }
 
 }

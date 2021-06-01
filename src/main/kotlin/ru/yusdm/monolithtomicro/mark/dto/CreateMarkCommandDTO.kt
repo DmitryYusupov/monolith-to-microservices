@@ -1,6 +1,6 @@
 package ru.yusdm.monolithtomicro.mark.dto
 
-import ru.yusdm.monolithtomicro.mark.service.CreateMarkCommand
+import ru.yusdm.monolithtomicro.mark.service.edit.CreateMarkCommand
 
 data class CreateMarkCommandDTO(
     val name: String,
