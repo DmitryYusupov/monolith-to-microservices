@@ -1,4 +1,4 @@
-package ru.yusdm.monolithtomicro.entity
+package ru.yusdm.monolithtomicro.common
 
 import java.util.*
 
