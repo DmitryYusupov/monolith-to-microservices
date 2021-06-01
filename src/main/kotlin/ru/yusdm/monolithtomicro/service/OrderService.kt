@@ -5,8 +5,8 @@ import org.springframework.transaction.annotation.Transactional
 import ru.yusdm.monolithtomicro.domain.Mark
 import ru.yusdm.monolithtomicro.domain.Model
 import ru.yusdm.monolithtomicro.domain.Order
-import ru.yusdm.monolithtomicro.domain.User
-import ru.yusdm.monolithtomicro.entity.ModelEntity
+import ru.yusdm.monolithtomicro.user.domain.User
+import ru.yusdm.monolithtomicro.model.entity.ModelEntity
 import ru.yusdm.monolithtomicro.entity.OrderEntity
 import ru.yusdm.monolithtomicro.entity.UserEntity
 import ru.yusdm.monolithtomicro.repository.ModelRepository

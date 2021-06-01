@@ -1,7 +1,7 @@
-package ru.yusdm.monolithtomicro.domain
+package ru.yusdm.monolithtomicro.mark.domain
 
-import ru.yusdm.monolithtomicro.dto.MarkDTO
-import ru.yusdm.monolithtomicro.entity.MarkEntity
+import ru.yusdm.monolithtomicro.mark.dto.MarkDTO
+import ru.yusdm.monolithtomicro.mark.entity.MarkEntity
 import java.util.*
 
 data class Mark(

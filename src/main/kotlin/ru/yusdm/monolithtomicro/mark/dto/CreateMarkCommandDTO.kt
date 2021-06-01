@@ -1,4 +1,4 @@
-package ru.yusdm.monolithtomicro.dto
+package ru.yusdm.monolithtomicro.mark.dto
 
 import ru.yusdm.monolithtomicro.service.CreateMarkCommand
 

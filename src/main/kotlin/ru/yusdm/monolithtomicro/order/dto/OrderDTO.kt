@@ -1,4 +1,4 @@
-package ru.yusdm.monolithtomicro.dto
+package ru.yusdm.monolithtomicro.order.dto
 
 import java.time.LocalDateTime
 import java.util.*

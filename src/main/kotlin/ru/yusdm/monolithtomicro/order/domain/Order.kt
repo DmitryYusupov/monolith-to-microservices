@@ -1,6 +1,6 @@
-package ru.yusdm.monolithtomicro.domain
+package ru.yusdm.monolithtomicro.order.domain
 
-import ru.yusdm.monolithtomicro.dto.OrderDTO
+import ru.yusdm.monolithtomicro.order.dto.OrderDTO
 import java.time.LocalDateTime
 import java.util.*
 

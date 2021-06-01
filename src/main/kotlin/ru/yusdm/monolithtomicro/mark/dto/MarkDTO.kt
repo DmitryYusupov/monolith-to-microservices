@@ -1,5 +1,6 @@
-package ru.yusdm.monolithtomicro.dto
+package ru.yusdm.monolithtomicro.mark.dto
 
+import ru.yusdm.monolithtomicro.model.dto.ModelDTO
 import java.util.*
 
 data class MarkDTO(

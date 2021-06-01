@@ -3,7 +3,7 @@ package ru.yusdm.monolithtomicro.api
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import ru.yusdm.monolithtomicro.dto.CreateOrderCommandDTO
-import ru.yusdm.monolithtomicro.dto.OrderDTO
+import ru.yusdm.monolithtomicro.order.dto.OrderDTO
 import ru.yusdm.monolithtomicro.service.http.OrderHttpService
 
 @RestController

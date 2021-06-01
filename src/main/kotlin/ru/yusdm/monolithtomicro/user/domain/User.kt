@@ -1,4 +1,4 @@
-package ru.yusdm.monolithtomicro.domain
+package ru.yusdm.monolithtomicro.user.domain
 
 import java.time.LocalDateTime
 import java.util.*

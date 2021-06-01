@@ -1,8 +1,8 @@
-package ru.yusdm.monolithtomicro.domain
+package ru.yusdm.monolithtomicro.model.domain
 
-import ru.yusdm.monolithtomicro.dto.ModelDTO
-import ru.yusdm.monolithtomicro.entity.MarkEntity
-import ru.yusdm.monolithtomicro.entity.ModelEntity
+import ru.yusdm.monolithtomicro.model.dto.ModelDTO
+import ru.yusdm.monolithtomicro.mark.entity.MarkEntity
+import ru.yusdm.monolithtomicro.model.entity.ModelEntity
 import java.util.*
 
 data class Model(

@@ -4,7 +4,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 import ru.yusdm.monolithtomicro.domain.toDTO
 import ru.yusdm.monolithtomicro.dto.CreateOrderCommandDTO
-import ru.yusdm.monolithtomicro.dto.OrderDTO
+import ru.yusdm.monolithtomicro.order.dto.OrderDTO
 import ru.yusdm.monolithtomicro.dto.toModel
 import ru.yusdm.monolithtomicro.service.OrderService
 

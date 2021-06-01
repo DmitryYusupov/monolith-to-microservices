@@ -3,7 +3,7 @@ package ru.yusdm.monolithtomicro.api
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import ru.yusdm.monolithtomicro.dto.CreateMarkCommandDTO
-import ru.yusdm.monolithtomicro.dto.MarkDTO
+import ru.yusdm.monolithtomicro.mark.dto.MarkDTO
 import ru.yusdm.monolithtomicro.service.http.MarkHttpService
 
 @RestController
