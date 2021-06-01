@@ -1,7 +1,7 @@
-package ru.yusdm.monolithtomicro.service.http
+package ru.yusdm.monolithtomicro.model.api.http
 
 import org.springframework.stereotype.Service
-import ru.yusdm.monolithtomicro.service.ModelService
+import ru.yusdm.monolithtomicro.model.service.ModelService
 
 @Service
 class ModelHttpService(private val modelService: ModelService) {

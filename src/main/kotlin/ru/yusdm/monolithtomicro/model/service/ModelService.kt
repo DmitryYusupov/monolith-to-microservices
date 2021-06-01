@@ -1,8 +1,8 @@
-package ru.yusdm.monolithtomicro.service
+package ru.yusdm.monolithtomicro.model.service
 
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import ru.yusdm.monolithtomicro.repository.ModelRepository
+import ru.yusdm.monolithtomicro.model.repository.ModelRepository
 
 @Service
 @Transactional

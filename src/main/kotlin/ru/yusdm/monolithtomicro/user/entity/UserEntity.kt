@@ -1,7 +1,8 @@
-package ru.yusdm.monolithtomicro.entity
+package ru.yusdm.monolithtomicro.user.entity
 
 import ru.yusdm.monolithtomicro.common.DEFAULT_ID
 import ru.yusdm.monolithtomicro.common.UNDEFINED_STR
+import ru.yusdm.monolithtomicro.order.entity.OrderEntity
 import java.time.LocalDateTime
 import java.util.*
 import javax.persistence.*

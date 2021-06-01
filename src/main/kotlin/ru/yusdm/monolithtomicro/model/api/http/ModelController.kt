@@ -1,8 +1,7 @@
-package ru.yusdm.monolithtomicro.api
+package ru.yusdm.monolithtomicro.model.api.http
 
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import ru.yusdm.monolithtomicro.service.http.ModelHttpService
 
 @RestController
 @RequestMapping("/api/model")

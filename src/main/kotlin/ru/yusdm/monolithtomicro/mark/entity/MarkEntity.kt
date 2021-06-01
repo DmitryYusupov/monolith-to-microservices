@@ -1,6 +1,7 @@
-package ru.yusdm.monolithtomicro.entity
+package ru.yusdm.monolithtomicro.mark.entity
 
 import ru.yusdm.monolithtomicro.common.DEFAULT_ID
+import ru.yusdm.monolithtomicro.model.entity.ModelEntity
 import java.util.*
 import javax.persistence.*
 

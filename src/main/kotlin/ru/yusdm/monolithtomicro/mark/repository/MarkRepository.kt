@@ -1,4 +1,4 @@
-package ru.yusdm.monolithtomicro.repository
+package ru.yusdm.monolithtomicro.mark.repository
 
 import org.springframework.data.jpa.repository.JpaRepository
 import ru.yusdm.monolithtomicro.mark.entity.MarkEntity

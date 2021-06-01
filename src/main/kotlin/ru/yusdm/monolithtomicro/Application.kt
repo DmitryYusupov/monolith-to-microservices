@@ -10,7 +10,7 @@ import java.time.LocalDateTime
 class Application: CommandLineRunner {
 
 	override fun run(vararg args: String) {
-		println("Common dateTimeUtils in action: " + LocalDateTime.now().asString());
+		println("Common dateTimeUtils in action: " + LocalDateTime.now().asString())
 	}
 
 }

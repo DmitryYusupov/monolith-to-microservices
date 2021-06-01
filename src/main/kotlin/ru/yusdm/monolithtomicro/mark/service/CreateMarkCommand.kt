@@ -1,4 +1,4 @@
-package ru.yusdm.monolithtomicro.service
+package ru.yusdm.monolithtomicro.mark.service
 
 data class CreateMarkCommand(
     val name: String,

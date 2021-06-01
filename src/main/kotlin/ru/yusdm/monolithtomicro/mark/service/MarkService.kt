@@ -1,12 +1,12 @@
-package ru.yusdm.monolithtomicro.service
+package ru.yusdm.monolithtomicro.mark.service
 
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import ru.yusdm.monolithtomicro.domain.Mark
-import ru.yusdm.monolithtomicro.domain.Model
-import ru.yusdm.monolithtomicro.domain.toEntity
-import ru.yusdm.monolithtomicro.repository.MarkRepository
-import ru.yusdm.monolithtomicro.repository.ModelRepository
+import ru.yusdm.monolithtomicro.mark.domain.Mark
+import ru.yusdm.monolithtomicro.mark.domain.toEntity
+import ru.yusdm.monolithtomicro.mark.repository.MarkRepository
+import ru.yusdm.monolithtomicro.model.domain.Model
+import ru.yusdm.monolithtomicro.model.repository.ModelRepository
 
 @Service
 @Transactional

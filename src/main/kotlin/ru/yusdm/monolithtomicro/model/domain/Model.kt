@@ -1,5 +1,6 @@
 package ru.yusdm.monolithtomicro.model.domain
 
+import ru.yusdm.monolithtomicro.mark.domain.Mark
 import ru.yusdm.monolithtomicro.model.dto.ModelDTO
 import ru.yusdm.monolithtomicro.mark.entity.MarkEntity
 import ru.yusdm.monolithtomicro.model.entity.ModelEntity

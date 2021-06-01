@@ -1,10 +1,9 @@
-package ru.yusdm.monolithtomicro.api
+package ru.yusdm.monolithtomicro.mark.api.http
 
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import ru.yusdm.monolithtomicro.dto.CreateMarkCommandDTO
+import ru.yusdm.monolithtomicro.mark.dto.CreateMarkCommandDTO
 import ru.yusdm.monolithtomicro.mark.dto.MarkDTO
-import ru.yusdm.monolithtomicro.service.http.MarkHttpService
 
 @RestController
 @RequestMapping("/api/mark")

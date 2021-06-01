@@ -1,12 +1,12 @@
-package ru.yusdm.monolithtomicro.service.http
+package ru.yusdm.monolithtomicro.mark.api.http
 
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
-import ru.yusdm.monolithtomicro.domain.toDTO
-import ru.yusdm.monolithtomicro.dto.CreateMarkCommandDTO
+import ru.yusdm.monolithtomicro.mark.domain.toDTO
+import ru.yusdm.monolithtomicro.mark.dto.CreateMarkCommandDTO
 import ru.yusdm.monolithtomicro.mark.dto.MarkDTO
-import ru.yusdm.monolithtomicro.dto.toCreateMarkCommandModel
-import ru.yusdm.monolithtomicro.service.MarkService
+import ru.yusdm.monolithtomicro.mark.dto.toCreateMarkCommandModel
+import ru.yusdm.monolithtomicro.mark.service.MarkService
 
 @Service
 class MarkHttpService(private val markService: MarkService) {

@@ -1,17 +1,17 @@
-package ru.yusdm.monolithtomicro.service
+package ru.yusdm.monolithtomicro.order.service
 
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import ru.yusdm.monolithtomicro.domain.Mark
-import ru.yusdm.monolithtomicro.domain.Model
-import ru.yusdm.monolithtomicro.domain.Order
+import ru.yusdm.monolithtomicro.mark.domain.Mark
+import ru.yusdm.monolithtomicro.model.domain.Model
 import ru.yusdm.monolithtomicro.user.domain.User
 import ru.yusdm.monolithtomicro.model.entity.ModelEntity
-import ru.yusdm.monolithtomicro.entity.OrderEntity
-import ru.yusdm.monolithtomicro.entity.UserEntity
-import ru.yusdm.monolithtomicro.repository.ModelRepository
-import ru.yusdm.monolithtomicro.repository.OrderRepository
-import ru.yusdm.monolithtomicro.repository.UserRepository
+import ru.yusdm.monolithtomicro.order.entity.OrderEntity
+import ru.yusdm.monolithtomicro.user.entity.UserEntity
+import ru.yusdm.monolithtomicro.model.repository.ModelRepository
+import ru.yusdm.monolithtomicro.order.domain.Order
+import ru.yusdm.monolithtomicro.order.repository.OrderRepository
+import ru.yusdm.monolithtomicro.user.repository.UserRepository
 import java.util.*
 import javax.persistence.*
 

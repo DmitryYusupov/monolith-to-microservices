@@ -1,6 +1,6 @@
 package ru.yusdm.monolithtomicro.order.dto
 
-import ru.yusdm.monolithtomicro.service.CreateOrderCommand
+import ru.yusdm.monolithtomicro.order.service.CreateOrderCommand
 import java.util.*
 
 data class CreateOrderCommandDTO(
