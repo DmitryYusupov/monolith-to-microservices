@@ -1,9 +1,7 @@
 package ru.yusdm.monolithtomicro.api
 
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.*
 import ru.yusdm.monolithtomicro.dto.CreateOrderCommandDTO
 import ru.yusdm.monolithtomicro.dto.OrderDTO
 import ru.yusdm.monolithtomicro.service.http.OrderHttpService
@@ -13,7 +11,12 @@ import ru.yusdm.monolithtomicro.service.http.OrderHttpService
 class OrderController(private val orderHttpService: OrderHttpService) {
 
     @PostMapping
-    fun create(@RequestBody createOrderCommand: CreateOrderCommandDTO): OrderDTO {
+    fun create(@RequestBody createOrderCommand: CreateOrderCommandDTO): ResponseEntity<OrderDTO> {
         return orderHttpService.create(createOrderCommand)
+    }
+
+    @GetMapping
+    fun findAll(): ResponseEntity<List<OrderDTO>> {
+        return orderHttpService.findAll()
     }
 }

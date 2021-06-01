@@ -15,6 +15,6 @@ class MarkEntity (
     @Column(name = "name")
     var name: String,
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "mark")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "mark", cascade = [CascadeType.ALL])
     var models: MutableList<ModelEntity>? = null
 )

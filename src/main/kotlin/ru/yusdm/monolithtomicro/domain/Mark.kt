@@ -7,7 +7,7 @@ import java.util.*
 data class Mark(
     val id: UUID = UUID.randomUUID(),
     val name: String,
-    val models: List<Model>? = null
+    var models: List<Model>? = null
 )
 
 fun Mark.toEntity(): MarkEntity {

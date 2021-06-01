@@ -47,7 +47,7 @@ class OrderService(
 
         orderRepository.save(order)
         val model = modelRepository.getById(createOrderCommand.modelId)
-        val user = userRepository.getById(createOrderCommand.modelId)
+        val user = userRepository.getById(createOrderCommand.userId)
 
         return buildOrder(order, model, user)
     }
@@ -67,7 +67,7 @@ class OrderService(
         }
         orderRepository.save(order)
         val model = modelRepository.getById(createOrderCommand.modelId)
-        val user = userRepository.getById(createOrderCommand.modelId)
+        val user = userRepository.getById(createOrderCommand.userId)
 
         return buildOrder(order, model, user)
     }
@@ -97,5 +97,11 @@ class OrderService(
         )
     }
 
+
+    fun findAll(): List<Order> {
+        return orderRepository.findAll().asSequence().map {
+            buildOrder(it, it.model, it.user)
+        }.toList()
+    }
 
 }

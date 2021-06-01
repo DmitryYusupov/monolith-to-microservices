@@ -1,8 +1,7 @@
 package ru.yusdm.monolithtomicro.api
 
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.*
 import ru.yusdm.monolithtomicro.dto.CreateMarkCommandDTO
 import ru.yusdm.monolithtomicro.dto.MarkDTO
 import ru.yusdm.monolithtomicro.service.http.MarkHttpService
@@ -12,8 +11,13 @@ import ru.yusdm.monolithtomicro.service.http.MarkHttpService
 class MarkController(private val markHttpService: MarkHttpService) {
 
     @PostMapping
-    fun saveMark(createMarkCommand: CreateMarkCommandDTO): MarkDTO {
+    fun saveMark(@RequestBody createMarkCommand: CreateMarkCommandDTO): ResponseEntity<MarkDTO> {
         return markHttpService.save(createMarkCommand)
+    }
+
+    @GetMapping
+    fun findAll(): ResponseEntity<List<MarkDTO>> {
+        return markHttpService.finaAll()
     }
 
 }

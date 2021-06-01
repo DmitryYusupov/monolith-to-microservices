@@ -6,7 +6,7 @@ import ru.yusdm.monolithtomicro.entity.ModelEntity
 import java.util.*
 
 data class Model(
-    val id: UUID,
+    val id: UUID = UUID.randomUUID(),
     val name: String,
     val mark: Mark
 )
