@@ -1,7 +1,6 @@
 package ru.yusdm.monolithtomicro.mark.entity
 
 import ru.yusdm.monolithtomicro.common.DEFAULT_ID
-import ru.yusdm.monolithtomicro.model.entity.ModelEntity
 import java.util.*
 import javax.persistence.*
 
@@ -17,6 +16,4 @@ class MarkEntity (
     @Column(name = "name")
     var name: String,
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "mark", cascade = [CascadeType.ALL])
-    var models: MutableList<ModelEntity>? = null
 )

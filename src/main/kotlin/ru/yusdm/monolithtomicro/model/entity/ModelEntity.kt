@@ -2,7 +2,8 @@ package ru.yusdm.monolithtomicro.model.entity
 
 import ru.yusdm.monolithtomicro.common.DEFAULT_ID
 import ru.yusdm.monolithtomicro.common.UNDEFINED_STR
-import ru.yusdm.monolithtomicro.mark.entity.MarkEntity
+import ru.yusdm.monolithtomicro.model.domain.Mark
+import ru.yusdm.monolithtomicro.model.domain.Model
 import ru.yusdm.monolithtomicro.order.entity.OrderEntity
 import java.util.*
 import javax.persistence.*
@@ -16,9 +17,8 @@ class ModelEntity(
     @Column(name = "id", nullable = false, updatable = false, unique = true)
     var id: UUID = DEFAULT_ID,
 
-    @ManyToOne
-    @JoinColumn(name = "mark_id")
-    var mark: MarkEntity,
+    @Column(name = "mark_id")
+    var markId: UUID,
 
     @Column(name = "name", nullable = false)
     var name: String,
@@ -31,10 +31,18 @@ class ModelEntity(
         fun createById(id: UUID): ModelEntity {
             return ModelEntity(
                 id = id,
-                mark = MarkEntity(name = UNDEFINED_STR),
+                markId = DEFAULT_ID,
                 name = UNDEFINED_STR
             )
         }
     }
 
+}
+
+fun ModelEntity.toModel(): Model {
+    return Model(
+        id = id,
+        name = name,
+        mark = Mark(id = markId, name = UNDEFINED_STR)
+    )
 }

@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import ru.yusdm.monolithtomicro.mark.dto.CreateMarkCommandDTO
 import ru.yusdm.monolithtomicro.mark.dto.MarkDTO
+import java.util.*
 
 @RestController
 @RequestMapping("/api/mark")
@@ -17,6 +18,10 @@ class MarkController(private val markHttpService: MarkHttpService) {
     @GetMapping
     fun findAll(): ResponseEntity<List<MarkDTO>> {
         return markHttpService.finaAll()
+    }
+
+    fun addModelToMark() {
+        markHttpService.addModelToMark(UUID.randomUUID(), "name")
     }
 
 }

@@ -1,8 +1,6 @@
 package ru.yusdm.monolithtomicro.model.domain
 
-import ru.yusdm.monolithtomicro.mark.domain.Mark
 import ru.yusdm.monolithtomicro.model.dto.ModelDTO
-import ru.yusdm.monolithtomicro.mark.entity.MarkEntity
 import ru.yusdm.monolithtomicro.model.entity.ModelEntity
 import java.util.*
 
@@ -12,10 +10,15 @@ data class Model(
     val mark: Mark
 )
 
-fun Model.toEntity(markEntity: MarkEntity): ModelEntity {
+data class Mark(
+    val id: UUID = UUID.randomUUID(),
+    val name: String,
+)
+
+fun Model.toEntity(markId: UUID): ModelEntity {
     return ModelEntity(
         id = this.id,
-        mark = markEntity,
+        markId = markId,
         name = this.name,
         orders = mutableListOf()
     )

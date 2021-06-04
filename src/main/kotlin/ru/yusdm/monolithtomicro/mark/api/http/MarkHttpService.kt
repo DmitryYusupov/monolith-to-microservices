@@ -7,6 +7,7 @@ import ru.yusdm.monolithtomicro.mark.dto.CreateMarkCommandDTO
 import ru.yusdm.monolithtomicro.mark.dto.MarkDTO
 import ru.yusdm.monolithtomicro.mark.dto.toCreateMarkCommandModel
 import ru.yusdm.monolithtomicro.mark.service.MarkService
+import java.util.*
 
 @Service
 class MarkHttpService(private val markService: MarkService) {
@@ -21,5 +22,9 @@ class MarkHttpService(private val markService: MarkService) {
         return ResponseEntity.ok(
             markService.findAll().map { it.toDTO() }
         )
+    }
+
+    fun addModelToMark(markId: UUID, modelName: String) {
+        markService.addModelToMark(markId, modelName)
     }
 }
