@@ -1,27 +1,22 @@
 package ru.yusdm.monolithtomicro.model.domain
 
-import ru.yusdm.monolithtomicro.model.dto.ModelDTO
+import ru.yusdm.monolithtomicro.model.dto.DTO
 import ru.yusdm.monolithtomicro.model.entity.ModelEntity
 import java.util.*
 
 data class Model(
     val id: UUID = UUID.randomUUID(),
     val name: String,
-    val mark: Mark
+    val markId: UUID,
+    val orderIds: Set<UUID> = emptySet()
 )
 
-data class Mark(
-    val id: UUID = UUID.randomUUID(),
-    val name: String,
-)
-
-fun Model.toEntity(markId: UUID): ModelEntity {
+fun Model.toEntity(): ModelEntity {
     return ModelEntity(
         id = this.id,
-        markId = markId,
+        markId = this.markId,
         name = this.name,
-        orders = mutableListOf()
     )
 }
 
-fun Model.toDTO(): ModelDTO = ModelDTO(name = this.name)
+fun Model.toDTO(): DTO = DTO(name = this.name)

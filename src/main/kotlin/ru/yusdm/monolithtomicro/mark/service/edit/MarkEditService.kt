@@ -6,14 +6,14 @@ import ru.yusdm.monolithtomicro.mark.domain.Mark
 import ru.yusdm.monolithtomicro.mark.domain.Model
 import ru.yusdm.monolithtomicro.mark.domain.toEntity
 import ru.yusdm.monolithtomicro.mark.repository.MarkRepository
-import ru.yusdm.monolithtomicro.model.facade.ModelFacade
+import ru.yusdm.monolithtomicro.model.api.ModelApiService
 import java.util.*
 
 @Service
 @Transactional
 class MarkEditService(
     private val markRepository: MarkRepository,
-    private val modelFacade: ModelFacade
+    private val modelApiService: ModelApiService
 ) {
 
     fun createMark(createMarkCommand: CreateMarkCommand): Mark {
@@ -32,7 +32,7 @@ class MarkEditService(
     }
 
     fun addModelToMark(markId: UUID, modelName: String) {
-        modelFacade.addModel(ru.yusdm.monolithtomicro.model.facade.Model(name = modelName), markId)
+        modelApiService.addModel(ru.yusdm.monolithtomicro.model.api.Model(name = modelName, markId = markId))
     }
 
 }
