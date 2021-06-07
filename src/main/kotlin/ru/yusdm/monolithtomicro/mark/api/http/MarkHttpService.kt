@@ -14,7 +14,7 @@ class MarkHttpService(private val markService: MarkService) {
 
     fun save(createMarkCommand: CreateMarkCommandDTO): ResponseEntity<MarkDTO> {
         return ResponseEntity.ok(
-            markService.createMark(createMarkCommand.toCreateMarkCommandModel()).toDTO()
+            markService.create(createMarkCommand.toCreateMarkCommandModel()).toDTO()
         )
     }
 

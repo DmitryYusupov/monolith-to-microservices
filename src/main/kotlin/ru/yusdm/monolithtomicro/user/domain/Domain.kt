@@ -8,5 +8,13 @@ data class User(
     val name: String,
     val lastName: String,
     val driverLicense: String,
+    val orders: List<Order>? = null,
     val registeredAt: LocalDateTime = LocalDateTime.now()
-    )
+)
+
+data class Order(
+    val id: UUID,
+    val modelName: String,
+    val price: Int,
+    val finished: Boolean
+)

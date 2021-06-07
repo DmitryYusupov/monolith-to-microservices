@@ -17,7 +17,7 @@ class OrderHttpService(
 
     fun create(createOrderCommandDTO: CreateOrderCommandDTO): ResponseEntity<OrderDTO> {
         return ResponseEntity.ok(
-            orderEditService.createOrder(createOrderCommandDTO.toModel()).toDTO()
+            orderEditService.create(createOrderCommandDTO.toModel()).toDTO()
         )
     }
 

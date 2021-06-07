@@ -11,7 +11,7 @@ import java.util.*
 class MarkController(private val markHttpService: MarkHttpService) {
 
     @PostMapping
-    fun saveMark(@RequestBody createMarkCommand: CreateMarkCommandDTO): ResponseEntity<MarkDTO> {
+    fun save(@RequestBody createMarkCommand: CreateMarkCommandDTO): ResponseEntity<MarkDTO> {
         return markHttpService.save(createMarkCommand)
     }
 
@@ -20,8 +20,9 @@ class MarkController(private val markHttpService: MarkHttpService) {
         return markHttpService.finaAll()
     }
 
+    @PutMapping
     fun addModelToMark() {
-        markHttpService.addModelToMark(UUID.randomUUID(), "name")
+        markHttpService.addModelToMark(UUID.randomUUID(), "name_" + System.currentTimeMillis() % 15)
     }
 
 }

@@ -16,7 +16,7 @@ class MarkEditService(
     private val modelApiService: ModelApiService
 ) {
 
-    fun createMark(createMarkCommand: CreateMarkCommand): Mark {
+    fun create(createMarkCommand: CreateMarkCommand): Mark {
 
         return with(createMarkCommand) {
             val mark = Mark(name = this.name)
@@ -32,7 +32,7 @@ class MarkEditService(
     }
 
     fun addModelToMark(markId: UUID, modelName: String) {
-        modelApiService.addModel(ru.yusdm.monolithtomicro.model.api.Model(name = modelName, markId = markId))
+        modelApiService.save(ru.yusdm.monolithtomicro.model.api.Model(name = modelName, markId = markId))
     }
 
 }

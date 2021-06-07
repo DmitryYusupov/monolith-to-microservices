@@ -1,8 +1,8 @@
 package ru.yusdm.monolithtomicro.user.entity
 
 import ru.yusdm.monolithtomicro.common.DEFAULT_ID
-import ru.yusdm.monolithtomicro.common.UNDEFINED_STR
-import ru.yusdm.monolithtomicro.order.entity.OrderEntity
+import ru.yusdm.monolithtomicro.user.domain.Order
+import ru.yusdm.monolithtomicro.user.domain.User
 import java.time.LocalDateTime
 import java.util.*
 import javax.persistence.*
@@ -26,19 +26,15 @@ class UserEntity(
 
     @Column(name = "registered_at")
     var registeredAt: LocalDateTime = LocalDateTime.now(),
+)
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = [CascadeType.ALL])
-    var orders: MutableList<OrderEntity> = mutableListOf()
-
-) {
-    companion object {
-        fun createById(id: UUID): UserEntity {
-            return UserEntity(
-                id = id,
-                name = UNDEFINED_STR,
-                lastName = UNDEFINED_STR,
-                driverLicense = UNDEFINED_STR,
-            )
-        }
-    }
+fun UserEntity.toDomain(ordersSupplier: ((userId: UUID) -> List<Order>?)? = null): User {
+    return User(
+        id = id,
+        name = name,
+        lastName = lastName,
+        orders = ordersSupplier?.invoke(id),
+        driverLicense = driverLicense,
+        registeredAt = registeredAt
+    )
 }

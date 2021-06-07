@@ -1,6 +1,5 @@
 package ru.yusdm.monolithtomicro.model.domain
 
-import ru.yusdm.monolithtomicro.model.dto.DTO
 import ru.yusdm.monolithtomicro.model.entity.ModelEntity
 import java.util.*
 
@@ -18,5 +17,3 @@ fun Model.toEntity(): ModelEntity {
         name = this.name,
     )
 }
-
-fun Model.toDTO(): DTO = DTO(name = this.name)

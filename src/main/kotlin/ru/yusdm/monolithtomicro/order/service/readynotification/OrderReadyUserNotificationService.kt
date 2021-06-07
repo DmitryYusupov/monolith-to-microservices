@@ -2,7 +2,7 @@ package ru.yusdm.monolithtomicro.order.service.readynotification
 
 import org.springframework.stereotype.Service
 import ru.yusdm.monolithtomicro.order.domain.Order
-import ru.yusdm.monolithtomicro.user.domain.User
+import ru.yusdm.monolithtomicro.order.domain.User
 
 enum class Chanel {
     SMS, EMAIL, TELEGRAM

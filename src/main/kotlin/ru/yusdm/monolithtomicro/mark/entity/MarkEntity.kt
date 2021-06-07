@@ -15,5 +15,4 @@ class MarkEntity (
 
     @Column(name = "name")
     var name: String,
-
 )

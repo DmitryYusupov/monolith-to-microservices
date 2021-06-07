@@ -1,6 +1,10 @@
 package ru.yusdm.monolithtomicro.order.entity
 
 import ru.yusdm.monolithtomicro.common.DEFAULT_ID
+import ru.yusdm.monolithtomicro.common.UNDEFINED_STR
+import ru.yusdm.monolithtomicro.order.domain.Model
+import ru.yusdm.monolithtomicro.order.domain.Order
+import ru.yusdm.monolithtomicro.order.domain.User
 import java.time.LocalDateTime
 import java.util.*
 import javax.persistence.*
@@ -35,3 +39,23 @@ class OrderEntity(
     @Column(name = "finished")
     var finished: Boolean
 )
+
+fun OrderEntity.toDomain(
+    modelSupplier: (modelId: UUID) -> Model = {
+        Model(id = modelId, name = UNDEFINED_STR)
+    },
+    userSupplier: (userId: UUID) -> User = {
+        User(id = userId, lastName = UNDEFINED_STR, name = UNDEFINED_STR)
+    }
+): Order {
+    return Order(
+        id = id,
+        model = modelSupplier.invoke(this.modelId),
+        user = userSupplier.invoke(this.userId),
+        description = description,
+        price = price,
+        priority = priority,
+        createdAt = createdAt,
+        finished = finished
+    )
+}

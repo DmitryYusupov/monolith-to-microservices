@@ -19,7 +19,7 @@ class MarkSearchService(
             Mark(
                 id = it.id,
                 name = it.name,
-                models = modelApiService.findModelsByMarkId(it.id).map { Model(it.id, it.name) }
+                models = modelApiService.findByMarkId(it.id).map { Model(it.id, it.name) }
             )
         }
     }

@@ -7,14 +7,18 @@ import ru.yusdm.monolithtomicro.model.domain.Model as ModelDomain
 import java.util.*
 
 @Service
-class DefaultModelApiService(private val modelService: ModelService): ModelApiService {
+class DefaultModelApiService(private val modelService: ModelService) : ModelApiService {
 
-    override fun addModel(model: Model): Model {
+    override fun save(model: Model): Model {
         return modelService.save(ModelDomain(name = model.name, markId = model.markId)).toModelApi()
     }
 
-    override fun findModelsByMarkId(markId: UUID): List<Model> {
+    override fun findByMarkId(markId: UUID): List<Model> {
         return modelService.findByMarkId(markId).map { it.toModelApi() }
+    }
+
+    override fun getById(modelId: UUID): Model {
+        return modelService.getById(modelId).toModelApi()
     }
 }
 

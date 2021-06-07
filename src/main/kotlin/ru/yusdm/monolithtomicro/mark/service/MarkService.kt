@@ -14,9 +14,9 @@ class MarkService(
     private val markEditService: MarkEditService,
     private val markSearchService: MarkSearchService
 ) {
-    fun createMark(createMarkCommand: CreateMarkCommand): Mark = markEditService.createMark(createMarkCommand)
+    fun create(createMarkCommand: CreateMarkCommand): Mark = markEditService.create(createMarkCommand)
 
-    fun addModelToMark(markId: UUID, modelName: String) = markEditService.addModelToMark(markId, modelName)
+    fun addModelToMark(markId: UUID, modelName: String): Unit = markEditService.addModelToMark(markId, modelName)
 
     fun findAll(): List<Mark> = markSearchService.findAll()
 }

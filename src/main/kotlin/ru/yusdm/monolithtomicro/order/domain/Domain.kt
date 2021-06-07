@@ -16,6 +16,7 @@ data class Order(
 )
 
 data class Model(val id: UUID, val name: String)
+
 data class User(val id: UUID, val lastName: String, val name: String)
 
 fun Order.toDTO(): OrderDTO {

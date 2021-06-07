@@ -21,4 +21,8 @@ class ModelService(private val modelRepository: ModelRepository) {
 
         return model
     }
+
+    fun getById(uuid: UUID): Model {
+        return modelRepository.findById(uuid).get().toModel()
+    }
 }
