@@ -1,2 +1,10 @@
 rootProject.name = "monolith-to-microservices"
 include("common")
+include("user-connector")
+include("user-service")
+include("mark-connector")
+include("mark-service")
+include("model-connector")
+include("model-service")
+include("order-connector")
+include("order-service")
