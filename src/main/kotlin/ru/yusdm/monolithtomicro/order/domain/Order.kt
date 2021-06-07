@@ -1,8 +1,6 @@
 package ru.yusdm.monolithtomicro.order.domain
 
-import ru.yusdm.monolithtomicro.model.domain.Model
 import ru.yusdm.monolithtomicro.order.dto.OrderDTO
-import ru.yusdm.monolithtomicro.user.domain.User
 import java.time.LocalDateTime
 import java.util.*
 
@@ -16,6 +14,9 @@ data class Order(
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val finished: Boolean = false
 )
+
+data class Model(val id: UUID, val name: String)
+data class User(val id: UUID, val lastName: String, val name: String)
 
 fun Order.toDTO(): OrderDTO {
     return OrderDTO(

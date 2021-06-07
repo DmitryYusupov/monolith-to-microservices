@@ -1,8 +1,6 @@
 package ru.yusdm.monolithtomicro.order.entity
 
 import ru.yusdm.monolithtomicro.common.DEFAULT_ID
-import ru.yusdm.monolithtomicro.model.entity.ModelEntity
-import ru.yusdm.monolithtomicro.user.entity.UserEntity
 import java.time.LocalDateTime
 import java.util.*
 import javax.persistence.*
@@ -16,13 +14,11 @@ class OrderEntity(
     @Column(name = "id", nullable = false, updatable = false, unique = true)
     var id: UUID = DEFAULT_ID,
 
-    @ManyToOne
-    @JoinColumn(name = "model_id", nullable = false)
-    var model: ModelEntity,
+    @Column(name = "model_id", nullable = false)
+    var modelId: UUID,
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    var user: UserEntity,
+    @Column(name = "user_id", nullable = false)
+    var userId: UUID,
 
     @Column(name = "price")
     var price: Int,
