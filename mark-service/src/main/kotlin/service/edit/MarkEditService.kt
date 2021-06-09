@@ -22,9 +22,9 @@ class MarkEditService(
             val mark = Mark(name = this.name)
             mark.models = this.models?.map { Model(name = it.name) } ?: emptyList()
 
-            markRepository.save(mark.toEntity())
+            val savedMark = markRepository.save(mark.toEntity())
             this.models?.forEach {
-                addModelToMark(mark.id, it.name)
+                addModelToMark(savedMark.id, it.name)
             }
 
             mark
