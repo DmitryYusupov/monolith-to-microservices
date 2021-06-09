@@ -16,14 +16,19 @@ allOpen {
 
 dependencies {
     implementation(project(":common"))
-    implementation(project(":user-connector"))
 
-    implementation(kotlin("reflect"))
-    implementation(kotlin("stdlib-jdk8"))
     implementation("org.springframework.boot:spring-boot-starter")
-    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+    implementation("org.flywaydb:flyway-core")
+    runtimeOnly("com.h2database:h2")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

@@ -5,7 +5,7 @@ import org.springframework.transaction.annotation.Transactional
 import ru.yusdm.monolithtomicro.mark.domain.Mark
 import ru.yusdm.monolithtomicro.mark.domain.Model
 import ru.yusdm.monolithtomicro.mark.repository.MarkRepository
-import ru.yusdm.monolithtomicro.model.connector.ModelApiService
+import ru.yusdm.monolithtomicro.mark.service.ModelApiService
 
 @Service
 @Transactional

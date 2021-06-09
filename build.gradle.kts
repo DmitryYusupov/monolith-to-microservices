@@ -9,18 +9,11 @@ plugins {
 	kotlin("plugin.allopen") version "1.3.61"
 }
 
-allOpen {
-	annotation("javax.persistence.Entity")
-	annotation("javax.persistence.Embeddable")
-	annotation("javax.persistence.MappedSuperclass")
-}
-
 java.sourceCompatibility = JavaVersion.VERSION_14
 
 allprojects {
 	group = "ru.yusdm.monolithtomicro"
 	version = "0.0.1-SNAPSHOT"
-
 
 	repositories {
 		mavenCentral()
@@ -45,28 +38,10 @@ allprojects {
 }
 
 subprojects {
-
 	repositories {
 		mavenCentral()
 	}
 	apply {
 		plugin("org.jetbrains.kotlin.jvm")
 	}
-}
-
-dependencies {
-	implementation(project(":common"))
-	implementation(project(":mark-service"))
-	implementation(project(":model-service"))
-	implementation(project(":user-service"))
-	implementation(project(":order-service"))
-	implementation("org.springframework.boot:spring-boot-starter-actuator")
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("org.flywaydb:flyway-core")
-	runtimeOnly("com.h2database:h2")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

@@ -6,7 +6,7 @@ import ru.yusdm.monolithtomicro.mark.domain.Mark
 import ru.yusdm.monolithtomicro.mark.domain.Model
 import ru.yusdm.monolithtomicro.mark.domain.toEntity
 import ru.yusdm.monolithtomicro.mark.repository.MarkRepository
-import ru.yusdm.monolithtomicro.model.connector.ModelApiService
+import ru.yusdm.monolithtomicro.mark.service.ModelApiService
 import java.util.*
 
 @Service
@@ -32,7 +32,7 @@ class MarkEditService(
     }
 
     fun addModelToMark(markId: UUID, modelName: String) {
-        modelApiService.save(ru.yusdm.monolithtomicro.model.connector.Model(name = modelName, markId = markId))
+        modelApiService.save(ru.yusdm.monolithtomicro.mark.service.Model(name = modelName, markId = markId))
     }
 
 }

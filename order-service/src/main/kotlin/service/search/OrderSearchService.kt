@@ -2,13 +2,13 @@ package ru.yusdm.monolithtomicro.order.service.search
 
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import ru.yusdm.monolithtomicro.model.connector.ModelApiService
 import ru.yusdm.monolithtomicro.order.domain.Model
 import ru.yusdm.monolithtomicro.order.domain.Order
 import ru.yusdm.monolithtomicro.order.domain.User
 import ru.yusdm.monolithtomicro.order.entity.toDomain
 import ru.yusdm.monolithtomicro.order.repository.OrderRepository
-import ru.yusdm.monolithtomicro.user.connector.UserApiService
+import ru.yusdm.monolithtomicro.order.service.model.ModelApiService
+import ru.yusdm.monolithtomicro.order.service.user.UserApiService
 
 @Service
 @Transactional
